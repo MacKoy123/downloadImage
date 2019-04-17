@@ -11,8 +11,10 @@ import UIKit
 class DownloadTableViewController: UITableViewController {
 
     override func viewDidLoad() {
-        readOfCOreData()
-        super.viewDidLoad()
+        DispatchQueue.main.async {
+            readOfCOreData()
+            super.viewDidLoad()
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

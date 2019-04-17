@@ -19,13 +19,15 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addImageToFavoritePicture(_ sender: UIButton) {
-        readOfCOreData()
-        if imageCoreData.filter({$0.urlFavoriteImage == String(forkeyToDetail)}).isEmpty {
-            saveToCoreData(url: forkeyToDetail)
-            showAllert(title: "Картинка успешно добавлена в избранные")
-        }
-        else {
-            showAllert(title: "Эта картинка уже добавлена в избранное")
+        DispatchQueue.main.async {
+            readOfCOreData()
+            if imageCoreData.filter({$0.urlFavoriteImage == String(forkeyToDetail)}).isEmpty {
+                saveToCoreData(url: forkeyToDetail)
+                self.showAllert(title: "Картинка успешно добавлена в избранные")
+            }
+            else {
+                self.showAllert(title: "Эта картинка уже добавлена в избранное")
+            }
         }
     }
     

@@ -18,8 +18,10 @@ class SavedTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        readOfCOreData() 
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            readOfCOreData()
+            self.tableView.reloadData()
+        }
     }
     
 
